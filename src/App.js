@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
+import { Fabric, loadTheme } from '@fluentui/react';
+import cosnoteTheme from "./cosnoteTheme";
+
 
 class Cosnote extends Component {
 
-    API_BASE_URL = "https://cosnote.thecosmos.space"
+    API_BASE_URL = "https://cosnote.thecosmos.space/api";
+
 
     constructor(props) {
         super(props);
@@ -10,6 +14,7 @@ class Cosnote extends Component {
             isLoggedIn: false,
             isLoading: false,
         };
+        loadTheme(cosnoteTheme);
         this.request = this.request.bind(this);
     }
 
@@ -18,15 +23,17 @@ class Cosnote extends Component {
             method: method, mode: "cors", credentials: "include", redirect: "follow",
             headers: {
                 "Content-Type": "application/json"
-            }, body: JSON.stringify(json),
+            }, body: JSON.stringify(json)
         });
     }
 
     render() {
         return (
-            <div>
+            <Fabric>
+                <div>
 
-            </div>
+                </div>
+            </Fabric>
         );
     }
 }
