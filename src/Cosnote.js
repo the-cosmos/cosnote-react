@@ -2,6 +2,7 @@ import { Fabric, initializeIcons } from '@fluentui/react';
 import { ThemeProvider } from "@fluentui/react-theme-provider";
 import React, {Component} from 'react';
 import Header from "./components/header/header";
+import Login from './components/landing/Login';
 import { CosnoteTheme } from './cosnoteTheme';
 
 
@@ -61,6 +62,7 @@ class Cosnote extends Component {
             <ThemeProvider theme={CosnoteTheme}>
                 <Fabric>
                     <Header cosnote={this} />
+                    <Login cosnote={this} />
                 </Fabric>
             </ThemeProvider>
         );
