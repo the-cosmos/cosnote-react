@@ -30,30 +30,31 @@ class Cosnote extends Component {
     //     })
     // }
 
-    request(route, options = {
-        method: "POST", json: {}
-    }, callback) {
-        fetch(this.API_BASE_URL + route, {
-            method: options.method || "POST", mode: "cors", credentials: "include", redirect: "follow",
+    request(route, options, callback) {
+        options = {
+            method: "POST",
+            mode: "cors",
+            credentials: "include",
+            redirect: "follow",
             headers: {
                 "Content-Type": "application/json"
-            }, body: JSON.stringify(options.json || {})
-        })
-            .then(response => {
-                response.json().then(json => {
-                    // if (response.status !== 200 && (options.showErrorMessage || true)) {
-                    //     if (json.errors) {
-                    //         this.showErrorMessageBar(json.errors[Object.keys(json.errors)[0]]);
-                    //     }
-                    // }
-                    callback(response);
-                });
-            }).catch(_error => {})
-    }
+            },
+            ...options,
+            body: JSON.stringify(options.json || {})
+        };
+        if (["GET", "HEAD"].includes(options.method.toUpperCase())) {
+            delete options.body;
+        };
+        fetch(this.API_BASE_URL + route, options).then(response => {
+            return response;
+        });
+    };
 
     componentDidMount() {
-        
-    }
+        this.request("/notes/", {method: "GET"}, response => {
+            // pass
+        });
+    };
 
     render() {
         return (
