@@ -1,13 +1,18 @@
 import { FontSizes, IconButton, Stack } from '@fluentui/react';
+import { Text } from "@fluentui/react/lib/Text";
 import React, {Component} from 'react';
+import { CosnoteTheme } from '../../cosnoteTheme';
 import NavigationBar from './Navigation';
+
 
 const navItemStyles = {
     alignItems: 'center',
     display: 'flex',
-    height: 50,
+    background: CosnoteTheme.palette.white,
+    height: FontSizes.size42,
     justifyContent: 'center',
-    width: 50,
+    width: "auto",
+    margin: 7
 }
 
 class Brand extends Component {
@@ -17,12 +22,10 @@ class Brand extends Component {
                 <Stack tokens={{childrenGap: 5}}>
                     <Stack horizontal horizontalAlign="start">
                         <span style={navItemStyles}>
-                            <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.size68}} } />
+                            <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.icon}} } />
                         </span>
                         <span style={navItemStyles}>
-                            <div className="brandingContainer">
-                                {/* <h1 style={brandBaseStyle}>Cosnote</h1> */}
-                            </div>
+                            <Text variant={"large"} block>Cosnote</Text>
                         </span>
                     </Stack>
                 </Stack>
