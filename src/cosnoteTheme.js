@@ -1,4 +1,4 @@
-export default {
+export const CosnoteTheme = {
     palette: {
         themePrimary: '#eb5b6c',
         themeLighterAlt: '#090404',
