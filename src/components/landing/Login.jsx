@@ -42,7 +42,7 @@ export default class Login extends Component {
                 {/* <Image src="/static/images/loginBackground.jpg" imageFit={ImageFit.cover} maximizeFrame /> */}
                 <Stack horizontal styles={stackStyles} tokens={{}}>
                     <Stack.Item grow styles={stackItemStyles}></Stack.Item>
-                    <Stack.Item grow disableShrink styles={nonShrinkingStackItemStyles}>
+                    <Stack.Item grow styles={nonShrinkingStackItemStyles}>
                         <LoginCard />
                     </Stack.Item>
                 </Stack>
