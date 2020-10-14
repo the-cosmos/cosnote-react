@@ -1,4 +1,4 @@
-import { FontSizes, IconButton, Stack } from '@fluentui/react';
+import { FontSizes, IconButton, Separator, Stack } from '@fluentui/react';
 import { Text } from "@fluentui/react/lib/Text";
 import React, {Component} from 'react';
 import { CosnoteTheme } from '../../cosnoteTheme';
@@ -23,6 +23,9 @@ class Brand extends Component {
                     <Stack horizontal horizontalAlign="start">
                         <span style={navItemStyles}>
                             <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.icon}} } />
+                            <Stack.Item>
+                                <Separator vertical />
+                            </Stack.Item>
                         </span>
                         <span style={navItemStyles}>
                             <Text variant={"large"} block>Cosnote</Text>
