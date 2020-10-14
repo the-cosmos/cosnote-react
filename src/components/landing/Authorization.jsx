@@ -1,6 +1,7 @@
 import { Checkbox, DefaultButton, DefaultEffects, FontWeights, MessageBar, MessageBarType, PrimaryButton, ProgressIndicator, Separator, Stack, Text, TextField } from "@fluentui/react";
 import React, { Component } from "react";
 import { CosnoteTheme } from '../../cosnoteTheme';
+import getErrorMessage from "../../utils";
 
 const stackStyles = {
     root: {
@@ -71,6 +72,17 @@ export default class Authorization extends Component {
             this.showErrorMessage("Please enter a valid password.")
             return
         };
+        this.cosnote.request("/authorize/", {json: {
+            username: this.state.username,
+            password: this.state.password,
+        }}).then(response => {
+            response.json().then(json => {
+                if (!response.ok) {
+                    this.showErrorMessage(getErrorMessage(json.errors));
+                    return;
+                }
+            })
+        })
     }
 
     authorizeThroughDiscord() {

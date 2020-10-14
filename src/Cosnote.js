@@ -32,7 +32,7 @@ class Cosnote extends Component {
     //     })
     // }
 
-    request(route, options, callback) {
+    request(route, options) {
         options = {
             method: "POST",
             mode: "cors",
@@ -47,15 +47,10 @@ class Cosnote extends Component {
         if (["GET", "HEAD"].includes(options.method.toUpperCase())) {
             delete options.body;
         };
-        fetch(this.API_BASE_URL + route, options).then(response => {
-            return response;
-        });
+        return fetch(this.API_BASE_URL + route, options);
     };
 
     componentDidMount() {
-        this.request("/notes/", {method: "GET"}, response => {
-            // pass
-        });
     };
 
     render() {
