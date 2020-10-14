@@ -1,7 +1,7 @@
 import { Stack } from '@fluentui/react'
 // import { ImageFit, Image } from '@fluentui/react'
 import React, { Component } from 'react'
-import LoginCard from './LoginCard'
+import Authorization from './Authorization'
 
 
 const stackStyles = {
@@ -43,7 +43,7 @@ export default class Login extends Component {
                 <Stack horizontal styles={stackStyles} tokens={{}}>
                     <Stack.Item grow styles={stackItemStyles}></Stack.Item>
                     <Stack.Item grow styles={nonShrinkingStackItemStyles}>
-                        <LoginCard />
+                        <Authorization cosnote={this.props.cosnote} />
                     </Stack.Item>
                 </Stack>
             </div>

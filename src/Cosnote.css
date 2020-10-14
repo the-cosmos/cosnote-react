@@ -27,3 +27,8 @@
 .loginField, .oauthButton {
     width: 100%;
 }
+
+.cosnoteProgress {
+    position: relative;
+    top: 8px;
+}
