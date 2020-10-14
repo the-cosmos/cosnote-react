@@ -1,6 +1,7 @@
-import { Stack } from '@fluentui/react'
-import { ImageFit, Image } from '@fluentui/react'
+import { DefaultEffects, Stack } from '@fluentui/react'
+// import { ImageFit, Image } from '@fluentui/react'
 import React, { Component } from 'react'
+import LoginCard from './LoginCard'
 
 
 const stackStyles = {
@@ -8,6 +9,7 @@ const stackStyles = {
         // background: DefaultPalette.themeTertiary,
         overflow: 'hidden',
         width: "100%",
+        height: "100%"
       },
 }
 
@@ -17,7 +19,6 @@ const stackItemStyles = {
         // background: DefaultPalette.themePrimary,
         // color: DefaultPalette.white,
         display: 'flex',
-        height: 50,
         justifyContent: 'center',
         overflow: 'hidden',
       },
@@ -29,10 +30,8 @@ const nonShrinkingStackItemStyles = {
     //   background: DefaultPalette.themePrimary,
     //   color: DefaultPalette.white,
       display: 'flex',
-      height: 50,
       justifyContent: 'center',
-      overflow: 'hidden',
-      width: 500,
+      overflow: 'hidden'
     },
 }
 
@@ -41,14 +40,12 @@ export default class Login extends Component {
         return (
             <div className="workspace loginCover">
                 {/* <Image src="/static/images/loginBackground.jpg" imageFit={ImageFit.cover} maximizeFrame /> */}
-                {/* <Stack horizontal styles={stackStyles} tokens={{childrenGap: 5}}>
-                    <Stack.Item grow styles={stackItemStyles}>
-                        ITEM 1
-                    </Stack.Item>
+                <Stack horizontal styles={stackStyles} tokens={{}}>
+                    <Stack.Item grow styles={stackItemStyles}></Stack.Item>
                     <Stack.Item grow disableShrink styles={nonShrinkingStackItemStyles}>
-                        ITEm 2
+                        <LoginCard />
                     </Stack.Item>
-                </Stack> */}
+                </Stack>
             </div>
         )
     }

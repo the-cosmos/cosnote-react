@@ -12,3 +12,14 @@
     background-attachment: fixed;
     background-image: url("/static/images/loginBackground.jpg");
 }
+
+.loginCard {
+    width: 372px;
+    height: 372px;
+    padding: 40px;
+    /* opacity: 99%; */
+}
+
+.loginField {
+    width: 100%;
+}
