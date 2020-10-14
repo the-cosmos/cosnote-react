@@ -20,6 +20,10 @@
     /* opacity: 99%; */
 }
 
-.loginField {
+.loginFieldsWrapper {
+    margin-top: 20px;
+}
+
+.loginField, .oauthButton {
     width: 100%;
 }

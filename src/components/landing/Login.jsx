@@ -1,4 +1,4 @@
-import { DefaultEffects, Stack } from '@fluentui/react'
+import { Stack } from '@fluentui/react'
 // import { ImageFit, Image } from '@fluentui/react'
 import React, { Component } from 'react'
 import LoginCard from './LoginCard'
