@@ -66,7 +66,7 @@ export default class LoginCard extends Component {
             <div className="loginCard" style={{boxShadow: DefaultEffects.elevation64, backgroundColor: CosnoteTheme.palette.white}}>
                 <Stack verticalAlign styles={stackStyles} tokens={{childrenGap: 20}}>
                     <Stack.Item styles={stackItemStyles}>
-                        <Text variant={"large"} style={{fontWeight: FontWeights.semibold}}>Start with a new or your existing credentials.</Text>
+                        <Text variant={"large"} style={{fontWeight: FontWeights.semibold}}>Start with new or your existing credentials.</Text>
                     </Stack.Item>
                     <Stack.Item styles={stackItemStyles}>
                         <div></div>

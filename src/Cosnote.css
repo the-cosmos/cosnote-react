@@ -14,8 +14,8 @@
 }
 
 .loginCard {
-    width: 372px;
-    height: 372px;
+    max-width: 372px;
+    max-height: 372px;
     padding: 40px;
     /* opacity: 99%; */
 }
