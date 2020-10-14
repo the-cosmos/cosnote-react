@@ -4,5 +4,6 @@ html, body {
 
 html, body, #root, .workspace  {
     height: 100vh;
-    overflow: hidden;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
 }

@@ -39,10 +39,12 @@ class Brand extends Component {
 class Header extends Component {
     render() {
         return (
-            <header className="cosnoteHeader">
-                <Brand />
-                <NavigationBar />
-            </header>
+            <div className="cosnoteHeader" style={{background: CosnoteTheme.palette.white}}>
+                <header>
+                    <Brand />
+                    <NavigationBar />
+                </header>
+            </div>
         );
     }
 }
