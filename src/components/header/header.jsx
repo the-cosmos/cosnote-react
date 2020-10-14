@@ -39,7 +39,7 @@ class Brand extends Component {
 class Header extends Component {
     render() {
         return (
-            <header>
+            <header className="cosnoteHeader">
                 <Brand />
                 <NavigationBar />
             </header>
