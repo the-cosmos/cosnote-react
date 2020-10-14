@@ -33,7 +33,7 @@ export default class Authorization extends Component {
             username: String(),
             password: String(),
             remember: true,
-            isLoading: true,
+            isLoading: false,
             errorMessage: "",
         }
         this.onChange = this.onChange.bind(this);
@@ -42,6 +42,7 @@ export default class Authorization extends Component {
     }
 
     onChange(e) {
+        this.showErrorMessage(String())
         e.persist();
         this.setState(prevState => {
             if (e.target) {
@@ -55,7 +56,21 @@ export default class Authorization extends Component {
         })
     }
 
+    showErrorMessage(message) {
+        this.setState(state => {
+            return {...state, errorMessage: message}
+        })
+    }
+
     authorize() {
+        if (!this.state.username) {
+            this.showErrorMessage("Please enter a valid username.")
+            return
+        };
+        if (!this.state.password) {
+            this.showErrorMessage("Please enter a valid password.")
+            return
+        };
     }
 
     authorizeThroughDiscord() {
