@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import Header from "./components/header/header";
 import Login from './components/landing/Login';
 import { CosnoteTheme } from './cosnoteTheme';
+import './Cosnote.css';
 
 
 initializeIcons();
@@ -59,10 +60,12 @@ class Cosnote extends Component {
 
     render() {
         return (
-            <ThemeProvider theme={CosnoteTheme}>
-                <Fabric>
-                    <Header cosnote={this} />
-                    <Login cosnote={this} />
+            <ThemeProvider theme={CosnoteTheme} className="workspace">
+                <Fabric className="workspace">
+                    <div className="workspace">
+                        <Header cosnote={this} />
+                        <Login cosnote={this} />
+                    </div>
                 </Fabric>
             </ThemeProvider>
         );
