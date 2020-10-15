@@ -39,10 +39,11 @@
 
 .cosnoteProgress {
     position: relative;
-    top: -43.2px;
+    /* bottom: -43.2px; */
+    top: 10px;
 }
 
 .loginErrorMessage {
     position: relative;
-    top: -35.2px;
+    top: -17.6px;
 }
