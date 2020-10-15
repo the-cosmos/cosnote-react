@@ -14,8 +14,9 @@
 }
 
 .loginCardWrapper {
-    max-width: 470px;
-    height: 520px;
+    max-width: 480px;
+    height: 480px;
+    position: relative;
 }
 
 .loginCard {
@@ -30,7 +31,18 @@
     width: 100%;
 }
 
+.loginMetaBar {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+}
+
 .cosnoteProgress {
     position: relative;
-    top: 8px;
+    top: -43.2px;
+}
+
+.loginErrorMessage {
+    position: relative;
+    top: -35.2px;
 }
