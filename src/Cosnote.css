@@ -33,17 +33,19 @@
 
 .loginMetaBar {
     position: absolute;
+    top: -35.2px;
     right: 0px;
     left: 0px;
 }
 
 .cosnoteProgress {
-    position: relative;
-    /* bottom: -43.2px; */
-    top: 10px;
+    position: absolute;
+    top: 27.3px;
+    right: 0px;
+    left: 0px;
 }
 
 .loginErrorMessage {
-    position: relative;
-    top: -17.6px;
+    /* position: relative; */
+    /* top: -17.6px; */
 }
