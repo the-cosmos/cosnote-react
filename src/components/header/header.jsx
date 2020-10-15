@@ -8,17 +8,35 @@ import NavigationBar from './Navigation';
 const stackStyles = {
     root: {
         overflow: "hidden",
-        paddingBottom: 0,
     }
 }
 
 const navItemStyles = {
-    alignItems: 'center',
-    display: 'flex',
-    background: CosnoteTheme.palette.white,
-    height: FontSizes.size42,
-    justifyContent: 'center',
-    width: "auto",
+    root: {
+        alignItems: 'center',
+        display: 'flex',
+        background: CosnoteTheme.palette.white,
+        height: FontSizes.size42,
+        justifyContent: 'center',
+        width: "auto",
+        paddingTop: 2,
+        paddingBottom: 2,
+    }
+}
+
+const navIconStyles = {
+    root: {
+        ...navItemStyles.root,
+        width: 42,
+        height: 42,
+    }
+}
+
+const navBrandNameStyles = {
+    root: {
+        ...navItemStyles.root,
+        paddingLeft: 15,
+    }
 }
 
 const separatorStyles = {
@@ -32,14 +50,14 @@ class Brand extends Component {
     render() {
         return (
             <div>
-                <Stack styles={stackStyles} tokens={{childrenGap: 5, padding: 7}} horizontal horizontalAlign="start">
-                    <span style={navItemStyles}>
+                <Stack styles={stackStyles} tokens={{padding: 4}} horizontal horizontalAlign="start">
+                    <Stack.Item styles={navIconStyles}>
                         <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.icon}} } />
-                    </span>
-                    <Separator vertical />
-                    <span style={{...navItemStyles, paddingLeft: 7}}>
+                    </Stack.Item>
+                    <Separator styles={{root: {marginBottom: -7, marginTop: -7}}} vertical />
+                    <Stack.Item styles={navBrandNameStyles}>
                         <Text variant={"large"} block>Cosnote</Text>
-                    </span>
+                    </Stack.Item>
                 </Stack>
             </div>
         )
