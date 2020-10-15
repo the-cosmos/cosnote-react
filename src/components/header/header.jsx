@@ -18,18 +18,16 @@ class Brand extends Component {
     render() {
         return (
             <div>
-                <Stack tokens={{childrenGap: 5, padding: 7}}>
-                    <Stack horizontal horizontalAlign="start">
-                        <span style={navItemStyles}>
-                            <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.icon}} } />
-                            <Stack.Item>
-                                <Separator vertical />
-                            </Stack.Item>
-                        </span>
-                        <span style={{...navItemStyles, paddingLeft: 7}}>
-                            <Text variant={"large"} block>Cosnote</Text>
-                        </span>
-                    </Stack>
+                <Stack tokens={{childrenGap: 5, padding: 7}} horizontal horizontalAlign="start">
+                    <span style={navItemStyles}>
+                        <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.icon}} } />
+                        <Stack.Item>
+                            <Separator vertical />
+                        </Stack.Item>
+                    </span>
+                    <span style={{...navItemStyles, paddingLeft: 7}}>
+                        <Text variant={"large"} block>Cosnote</Text>
+                    </span>
                 </Stack>
             </div>
         )
