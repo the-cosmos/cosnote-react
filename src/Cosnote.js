@@ -3,6 +3,7 @@ import { ThemeProvider } from "@fluentui/react-theme-provider";
 import React, {Component} from 'react';
 import Header from "./components/header/header";
 import Login from './components/landing/Login';
+import Main from "./components/main/Main";
 import { CosnoteTheme } from './cosnoteTheme';
 import './Cosnote.css';
 
@@ -18,7 +19,7 @@ class Cosnote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: false,
+            partialUser: null,
             isLoading: false,
             apiErrorMessage: String(),
         };
@@ -59,7 +60,7 @@ class Cosnote extends Component {
                 <Fabric className="workspace">
                     <div className="workspace">
                         <Header cosnote={this} />
-                        <Login cosnote={this} />
+                        {this.state.partialUser ? <Main cosnote={this} /> : <Login cosnote={this} />}
                     </div>
                 </Fabric>
             </ThemeProvider>

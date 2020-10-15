@@ -59,7 +59,13 @@ export default class Authorization extends Component {
 
     showErrorMessage(message) {
         this.setState(state => {
-            return {...state, errorMessage: message}
+            return {...state, errorMessage: message, isLoading: false}
+        })
+    }
+
+    startLoading(start=true) {
+        this.setState(state => {
+            return {...state, isLoading: start}
         })
     }
 
@@ -72,13 +78,33 @@ export default class Authorization extends Component {
             this.showErrorMessage("Please enter a valid password.")
             return
         };
-        this.cosnote.request("/authorize/", {json: {
+        this.startLoading();
+        let credentials = {
             username: this.state.username,
             password: this.state.password,
-        }}).then(response => {
+        }
+        this.cosnote.request("/authorize/", {json: credentials}).then(response => {
             response.json().then(json => {
                 if (!response.ok) {
-                    this.showErrorMessage(getErrorMessage(json.errors));
+                    if (response.status === 404) {
+                        this.cosnote.request("/register/", {json: credentials}).then(response => {
+                            response.json().then(json => {
+                                if (!response.ok) {
+                                    return this.showErrorMessage(getErrorMessage(json.errors));
+                                };
+                                this.startLoading(false);
+                                console.log(json);
+                                this.cosnote.setState(state => {return {...state, partialUser: json}});
+                                return;
+                            })
+                        })
+                    } else {
+                        return this.showErrorMessage(getErrorMessage(json.errors));
+                    }
+                } else {
+                    this.startLoading(false);
+                    console.log(json);
+                    this.cosnote.setState(state => {return {...state, partialUser: json}});
                     return;
                 }
             })
