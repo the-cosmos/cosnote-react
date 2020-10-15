@@ -34,8 +34,8 @@ export default class Authorization extends Component {
             username: String(),
             password: String(),
             remember: true,
-            isLoading: true,
-            errorMessage: "The password you entered isn't correct. Please try again.",
+            isLoading: false,
+            errorMessage: String(),
         }
         this.onChange = this.onChange.bind(this);
         this.authorize = this.authorize.bind(this);
