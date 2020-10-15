@@ -53,6 +53,12 @@ const separatorStyles = {
     }
 }
 
+const userContextStyles = {
+    root: {
+        ...navItemStyles.root,
+    }
+}
+
 class Brand extends Component {
     render() {
         return (
@@ -68,8 +74,8 @@ class Brand extends Component {
                         </Stack.Item>
                     </Stack>
                     <Stack styles={navUserContextStyles} horizontal horizontalAlign="end">
-                        <Stack.Item styles={navItemStyles}>
-                            <UserContext />
+                        <Stack.Item styles={userContextStyles}>
+                            <UserContext cosnote={this.props.cosnote} />
                         </Stack.Item>
                     </Stack>
                 </Stack>
@@ -83,7 +89,7 @@ class Header extends Component {
         return (
             <div className="cosnoteHeader" style={{background: CosnoteTheme.palette.white}}>
                 <header>
-                    <Brand />
+                    <Brand cosnote={this.props.cosnote} />
                     <NavigationBar />
                 </header>
                 <Separator horizontal styles={separatorStyles} />
