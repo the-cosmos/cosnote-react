@@ -5,6 +5,13 @@ import { CosnoteTheme } from '../../cosnoteTheme';
 import NavigationBar from './Navigation';
 
 
+const stackStyles = {
+    root: {
+        overflow: "hidden",
+        paddingBottom: 0,
+    }
+}
+
 const navItemStyles = {
     alignItems: 'center',
     display: 'flex',
@@ -14,17 +21,22 @@ const navItemStyles = {
     width: "auto",
 }
 
+const separatorStyles = {
+    root: {
+        height: 0,
+        padding: 0,
+    }
+}
+
 class Brand extends Component {
     render() {
         return (
             <div>
-                <Stack tokens={{childrenGap: 5, padding: 7}} horizontal horizontalAlign="start">
+                <Stack styles={stackStyles} tokens={{childrenGap: 5, padding: 7}} horizontal horizontalAlign="start">
                     <span style={navItemStyles}>
                         <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.icon}} } />
-                        <Stack.Item>
-                            <Separator vertical />
-                        </Stack.Item>
                     </span>
+                    <Separator vertical />
                     <span style={{...navItemStyles, paddingLeft: 7}}>
                         <Text variant={"large"} block>Cosnote</Text>
                     </span>
@@ -42,6 +54,7 @@ class Header extends Component {
                     <Brand />
                     <NavigationBar />
                 </header>
+                <Separator horizontal styles={separatorStyles} />
             </div>
         );
     }

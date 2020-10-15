@@ -2,7 +2,7 @@ html, body {
     margin: 0;
 }
 
-html, body, #root, .workspace  {
+html, body, #root, .workspace, .cosnoteMain  {
     height: 100vh;
     overflow-y: hidden !important;
     overflow-x: hidden !important;
