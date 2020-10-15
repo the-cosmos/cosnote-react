@@ -34,8 +34,8 @@ export default class Authorization extends Component {
             username: String(),
             password: String(),
             remember: true,
-            isLoading: false,
-            errorMessage: "",
+            isLoading: true,
+            errorMessage: "The password you entered isn't correct. Please try again.",
         }
         this.onChange = this.onChange.bind(this);
         this.authorize = this.authorize.bind(this);
@@ -122,7 +122,7 @@ export default class Authorization extends Component {
             <div>
                 <div className="loginCardWrapper">
                     <div className="loginMetaBar">
-                        {this.state.errorMessage ? <MessageBar className="loginErrorMessage" messageBarType={MessageBarType.error}>{this.state.errorMessage}</MessageBar> : String()}
+                        {this.state.errorMessage ? <MessageBar className="loginErrorMessage" messageBarType={MessageBarType.error}>{this.state.errorMessage}</MessageBar> : <div className="loginErrorMessage"></div>}
                         <ProgressIndicator className="cosnoteProgress" progressHidden={!this.state.isLoading} />
                     </div>
                     <div className="loginCard" style={{boxShadow: DefaultEffects.elevation64, backgroundColor: CosnoteTheme.palette.white}}>
