@@ -15,7 +15,7 @@ const stackItemStyles = {
 const nonShrinkingStackItemStyles = {
     root: {
         ...stackItemStyles.root,
-        width: 48
+        width: 50
     }
 }
 

@@ -3,6 +3,7 @@ import { Text } from "@fluentui/react/lib/Text";
 import React, {Component} from 'react';
 import { CosnoteTheme } from '../../cosnoteTheme';
 import NavigationBar from './Navigation';
+import UserContext from './UserContext';
 
 
 const stackStyles = {
@@ -39,6 +40,12 @@ const navBrandNameStyles = {
     }
 }
 
+const navUserContextStyles = {
+    root: {
+        marginRight: 25
+    }
+}
+
 const separatorStyles = {
     root: {
         height: 0,
@@ -50,14 +57,21 @@ class Brand extends Component {
     render() {
         return (
             <div>
-                <Stack styles={stackStyles} tokens={{padding: 4}} horizontal horizontalAlign="start">
-                    <Stack.Item styles={navIconStyles}>
-                        <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.icon}} } />
-                    </Stack.Item>
-                    <Separator styles={{root: {marginBottom: -7, marginTop: -7}}} vertical />
-                    <Stack.Item styles={navBrandNameStyles}>
-                        <Text variant={"large"} block>Cosnote</Text>
-                    </Stack.Item>
+                <Stack styles={stackStyles} tokens={{padding: 4}} horizontal horizontalAlign="space-between">
+                    <Stack horizontal horizontalAlign="start">
+                        <Stack.Item styles={navIconStyles}>
+                            <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.icon}} } />
+                        </Stack.Item>
+                        <Separator styles={{root: {marginBottom: -7, marginTop: -7}}} vertical />
+                        <Stack.Item styles={navBrandNameStyles}>
+                            <Text variant={"large"} block>Cosnote</Text>
+                        </Stack.Item>
+                    </Stack>
+                    <Stack styles={navUserContextStyles} horizontal horizontalAlign="end">
+                        <Stack.Item styles={navItemStyles}>
+                            <UserContext />
+                        </Stack.Item>
+                    </Stack>
                 </Stack>
             </div>
         )
