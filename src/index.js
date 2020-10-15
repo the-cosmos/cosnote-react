@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Cosnote from './Cosnote';
+import Cosnote from './Cosnote.jsx';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
