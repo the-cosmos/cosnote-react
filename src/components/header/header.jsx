@@ -8,7 +8,7 @@ import UserContext from './UserContext';
 
 const stackStyles = {
     root: {
-        overflow: "hidden",
+        overflow: "auto",
     }
 }
 
@@ -23,31 +23,33 @@ const navItemStyles = {
     }
 }
 
-const navIconStyles = {
+const navBrandIconStyles = {
     root: {
         ...navItemStyles.root,
-        width: 42,
-        height: 42,
+        width: 50,
+        height: 50,
+    }
+}
+
+const brandIconStyles = {
+    root: {
+        fontSize: FontSizes.icon,
+        height: "100%",
+        width: "100%",
     }
 }
 
 const navBrandNameStyles = {
     root: {
         ...navItemStyles.root,
-        paddingLeft: 15,
+        paddingLeft: 25,
+        height: "100%"
     }
 }
 
 const navUserContextStyles = {
     root: {
         marginRight: 25
-    }
-}
-
-const separatorStyles = {
-    root: {
-        height: 0,
-        padding: 0,
     }
 }
 
@@ -61,12 +63,12 @@ class Brand extends Component {
     render() {
         return (
             <div>
-                <Stack styles={stackStyles} tokens={{padding: 4}} horizontal horizontalAlign="space-between">
+                <Stack styles={stackStyles} tokens={{}} horizontal horizontalAlign="space-between">
                     <Stack horizontal horizontalAlign="start">
-                        <Stack.Item styles={navIconStyles}>
-                            <IconButton iconProps={{iconName: "waffle", style: {fontSize: FontSizes.icon}} } />
+                        <Stack.Item styles={navBrandIconStyles}>
+                            <IconButton iconProps={{iconName: "waffle"}} styles={brandIconStyles} />
                         </Stack.Item>
-                        <Separator styles={{root: {marginBottom: -7, marginTop: -7}}} vertical />
+                        <Separator styles={{root: {marginBottom: -7, marginTop: -7, padding: 0}}} vertical />
                         <Stack.Item styles={navBrandNameStyles}>
                             <Text variant={"large"} block>Cosnote</Text>
                         </Stack.Item>
@@ -90,7 +92,7 @@ class Header extends Component {
                     <Brand cosnote={this.props.cosnote} />
                     <NavigationBar />
                 </header>
-                <Separator horizontal styles={separatorStyles} />
+                <Separator horizontal styles={{root: {height: 0, padding: 0}}} />
             </div>
         );
     }
