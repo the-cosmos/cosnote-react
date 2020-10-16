@@ -1,4 +1,4 @@
-import { FontSizes, IconButton, Separator, Stack } from '@fluentui/react';
+import { FontSizes, FontWeights, IconButton, Separator, Stack } from '@fluentui/react';
 import { Text } from "@fluentui/react/lib/Text";
 import React, {Component} from 'react';
 import { CosnoteTheme } from '../../cosnoteTheme';
@@ -70,7 +70,7 @@ class Brand extends Component {
                         </Stack.Item>
                         <Separator styles={{root: {marginBottom: -7, marginTop: -7, padding: 0}}} vertical />
                         <Stack.Item styles={navBrandNameStyles}>
-                            <Text variant={"large"} block>Cosnote</Text>
+                            <Text variant={"large"} block style={{fontWeight: FontWeights.regular}}>Cosnote</Text>
                         </Stack.Item>
                     </Stack>
                     <Stack styles={navUserContextStyles} horizontal horizontalAlign="end">
