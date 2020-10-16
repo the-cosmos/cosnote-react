@@ -19,9 +19,7 @@ const navItemStyles = {
         background: CosnoteTheme.palette.white,
         height: FontSizes.size42,
         justifyContent: 'center',
-        width: "auto",
-        paddingTop: 2,
-        paddingBottom: 2,
+        width: "auto"
     }
 }
 
