@@ -123,7 +123,7 @@ export default class Authorization extends Component {
                         {this.state.errorMessage ? <MessageBar className="loginErrorMessage" messageBarType={MessageBarType.error}>{this.state.errorMessage}</MessageBar> : <div className="loginErrorMessage"></div>}
                         <ProgressIndicator className="cosnoteProgress" progressHidden={!this.state.isLoading} />
                     </div>
-                    <div className="loginCard" style={{boxShadow: DefaultEffects.elevation64, backgroundColor: CosnoteTheme.palette.white}}>
+                    <div className="loginCard" style={{boxShadow: DefaultEffects.elevation16, backgroundColor: CosnoteTheme.palette.white}}>
                         <Stack verticalAlign styles={stackStyles} tokens={{childrenGap: 20}}>
                             <Stack.Item styles={stackItemStyles}>
                                 <Text variant={"large"} style={{fontWeight: FontWeights.semibold}}>Start with new or your existing credentials.</Text>
