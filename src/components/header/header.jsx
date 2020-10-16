@@ -8,7 +8,8 @@ import UserContext from './UserContext';
 
 const stackStyles = {
     root: {
-        overflow: "auto",
+        overflowX: "auto",
+        overflowY: "hidden",
     }
 }
 
