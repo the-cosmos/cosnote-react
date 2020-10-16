@@ -1,4 +1,4 @@
-import { FontSizes, FontWeights, IconButton, Separator, Stack } from '@fluentui/react';
+import { FontSizes, FontWeights, IconButton, Separator, Stack, DefaultEffects } from '@fluentui/react';
 import { Text } from "@fluentui/react/lib/Text";
 import React, {Component} from 'react';
 import { CosnoteTheme } from '../../cosnoteTheme';
@@ -88,7 +88,7 @@ class Brand extends Component {
 class Header extends Component {
     render() {
         return (
-            <div className="cosnoteHeader" style={{background: CosnoteTheme.palette.white}}>
+            <div className="cosnoteHeader" style={{background: CosnoteTheme.palette.white, boxShadow: DefaultEffects.elevation8}}>
                 <header>
                     <Brand cosnote={this.props.cosnote} />
                     <NavigationBar />
