@@ -2,6 +2,14 @@ import { Stack, Separator } from '@fluentui/react';
 import React, { Component } from 'react'
 import Sidebar from './Sidebar';
 
+const stackStyles = {
+    root: {
+        overflow: "hidden",
+        width: "100%",
+        height: "100%",
+    }
+}
+
 const stackItemStyles = {
     root: {
         alignItems: 'center',
@@ -12,26 +20,19 @@ const stackItemStyles = {
     }
 }
 
-const nonShrinkingStackItemStyles = {
+const sidebarStyles = {
+    root: {
+        maxWidth: 250,
+    }
+}
+
+const editorStyles = {
     root: {
         ...stackItemStyles.root,
-        width: 50
-    }
-}
-
-const stackStyles = {
-    root: {
-        overflow: "hidden",
         width: "100%",
-        height: "100%",
     }
 }
 
-const separatorStyles = {
-    root: {
-        padding: 0,
-    }
-}
 
 export default class Main extends Component {
 
@@ -44,11 +45,10 @@ export default class Main extends Component {
         return (
             <div className="cosnoteMain">
                 <Stack horizontal styles={stackStyles} tokens={{}}>
-                    <Stack.Item styles={nonShrinkingStackItemStyles}>
+                    <Stack.Item grow styles={sidebarStyles}>
                         <Sidebar />
                     </Stack.Item>
-                    <Separator vertical styles={separatorStyles} />
-                    <Stack.Item grow styles={stackItemStyles}>
+                    <Stack.Item grow styles={editorStyles}>
                         <div></div>
                     </Stack.Item>
                 </Stack>
