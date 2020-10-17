@@ -1,5 +1,6 @@
 import { Stack, Separator } from '@fluentui/react';
 import React, { Component } from 'react'
+import Editor from './Editor';
 import Sidebar from './Sidebar';
 
 const stackStyles = {
@@ -49,7 +50,7 @@ export default class Main extends Component {
                         <Sidebar />
                     </Stack.Item>
                     <Stack.Item grow styles={editorStyles}>
-                        <div></div>
+                        <Editor />
                     </Stack.Item>
                 </Stack>
             </div>
