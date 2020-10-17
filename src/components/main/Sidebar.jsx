@@ -46,7 +46,7 @@ const sidebardPaneStyles = {
     root: {
         ...stackStyles.root,
         // maxWidth: 200,
-        width: 200,
+        width: 250,
     }
 }
 

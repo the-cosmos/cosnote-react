@@ -22,7 +22,7 @@ const stackItemStyles = {
 
 const sidebarStyles = {
     root: {
-        maxWidth: 250,
+        // maxWidth: 250,
     }
 }
 
@@ -45,7 +45,7 @@ export default class Main extends Component {
         return (
             <div className="cosnoteMain">
                 <Stack horizontal styles={stackStyles} tokens={{}}>
-                    <Stack.Item grow styles={sidebarStyles}>
+                    <Stack.Item styles={sidebarStyles}>
                         <Sidebar />
                     </Stack.Item>
                     <Stack.Item grow styles={editorStyles}>
