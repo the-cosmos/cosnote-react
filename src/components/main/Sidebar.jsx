@@ -1,6 +1,7 @@
 import { IconButton, Separator, Stack } from '@fluentui/react'
 import React, { Component } from 'react'
-import SidePanel from './SidePanel'
+import ActionBar from './ActionBar'
+import { CosnoteTheme } from "../../cosnoteTheme";
 
 const stackStyles = {
     root: {
@@ -38,7 +39,8 @@ const iconButtonStyles = {
 const nonShrinkingStackItemStyles = {
     root: {
         ...stackItemStyles.root,
-        width: 50
+        width: 50,
+        background: CosnoteTheme.palette.neutralLighterAlt,
     }
 }
 
@@ -46,7 +48,7 @@ const sidebardPaneStyles = {
     root: {
         ...stackStyles.root,
         // maxWidth: 200,
-        width: 250,
+        width: 350,
     }
 }
 
@@ -69,7 +71,7 @@ export default class Sidebar extends Component {
                 </Stack.Item>
                 <Separator vertical styles={{root: {padding: 0}}} />
                 <Stack.Item grow styles={sidebardPaneStyles}>
-                    {/* <SidePanel /> */}
+                    <ActionBar toggled={true} />
                 </Stack.Item>
             </Stack>
         )
