@@ -88,7 +88,7 @@ class Brand extends Component {
 class Header extends Component {
     render() {
         return (
-            <div className="cosnoteHeader" style={{background: CosnoteTheme.palette.white, boxShadow: DefaultEffects.elevation64}}>
+            <div className="cosnoteHeader" style={{background: CosnoteTheme.palette.white, boxShadow: DefaultEffects.elevation16}}>
                 <header>
                     <Brand cosnote={this.props.cosnote} />
                     <NavigationBar />
