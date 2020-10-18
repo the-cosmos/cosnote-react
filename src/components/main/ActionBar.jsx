@@ -14,7 +14,7 @@ export default class ActionBar extends Component {
         return (
             <>
                 {this.state.toggled ?
-                    <div className="sideActionBar" style={{boxShadow: DefaultEffects.elevation16, background: CosnoteTheme.palette.neutralQuaternaryAlt}}>
+                    <div className="sideActionBar" style={{boxShadow: DefaultEffects.elevation16, background: CosnoteTheme.palette.themePrimary}}>
 
                     </div> : <div></div>
                 }
