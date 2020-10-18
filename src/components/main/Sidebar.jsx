@@ -69,7 +69,7 @@ export default class Sidebar extends Component {
                 </Stack.Item>
                 <Separator vertical styles={{root: {padding: 0}}} />
                 <Stack.Item grow styles={sidebardPaneStyles}>
-                    <SidePanel />
+                    {/* <SidePanel /> */}
                 </Stack.Item>
             </Stack>
         )
