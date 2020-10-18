@@ -44,7 +44,7 @@ export default class CosnoteShimmer extends Component {
         let shimmers = [];
         for (var i = 0; i < (this.props.count || 1); i++) {
             shimmers.push(
-                <div className={shimmerWrapperClass} key={i}>
+                <div style={this.props.style} className={shimmerWrapperClass} key={i}>
                     <Shimmer shimmerColors={{background: this.props.background}} shimmerElements={shimmerWithElementFirstRow} />
                     <Shimmer shimmerColors={{background: this.props.background}} shimmerElements={shimmerWithElementSecondRow} />
                     <Shimmer shimmerColors={{background: this.props.background}} width="70%" shimmerElements={shimmerWithElementThirdRow} />
