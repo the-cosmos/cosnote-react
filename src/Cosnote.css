@@ -47,7 +47,7 @@
     min-height: 30px;
 }
 
-.sideActionBar, .cosnoteEditorWrapper, .cosnoteEditor {
+.sideActionBar, .cosnoteEditorWrapper, .cosnoteEditor, .cosnoteShimmer {
     width: 100%;
     height: 100%;
 }

@@ -42,7 +42,7 @@ const shimmerWithElementThirdRow = [
 export default class CosnoteShimmer extends Component {
     render() {
         return (
-            <div>
+            <div className="cosnoteShimmer">
                 <div className={shimmerWrapperClass}>
                     <Shimmer shimmerElements={shimmerWithElementFirstRow} />
                     <Shimmer shimmerElements={shimmerWithElementSecondRow} />
