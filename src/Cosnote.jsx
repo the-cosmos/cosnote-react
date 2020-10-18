@@ -2,7 +2,7 @@ import { Fabric, initializeIcons } from '@fluentui/react';
 import { ThemeProvider } from "@fluentui/react-theme-provider";
 import React, {Component} from 'react';
 import Header from "./components/header/header";
-import Login from './components/landing/Login';
+// import Login from './components/landing/Login';
 import Main from "./components/main/Main";
 import { CosnoteTheme } from './cosnoteTheme';
 import './Cosnote.css';

@@ -1,4 +1,4 @@
-import { Stack, Separator } from '@fluentui/react';
+import { Stack } from '@fluentui/react';
 import React, { Component } from 'react'
 import Editor from './editors/Editor';
 import Sidebar from './Sidebar';
