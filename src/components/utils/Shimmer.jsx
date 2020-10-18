@@ -1,4 +1,5 @@
-import { mergeStyles, ShimmerElementType } from '@fluentui/react'
+import React, { Component } from 'react'
+import { mergeStyles, Shimmer, ShimmerElementType } from '@fluentui/react'
 
 const shimmerWrapperClass = mergeStyles({
     padding: 2,
@@ -38,7 +39,7 @@ const shimmerWithElementThirdRow = [
 ];
 
 
-export default class Shimmer extends Component {
+export default class CosnoteShimmer extends Component {
     render() {
         return (
             <div>
