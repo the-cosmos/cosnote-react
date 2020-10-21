@@ -52,36 +52,6 @@ const sidebardPaneStyles = {
     }
 }
 
-const actionContexts = [
-    {
-        type: "newNote",
-        iconProps: {
-            iconName: "Add",
-        },
-        title: "New Note",
-        ariaLabel: "New Note",
-        active: false,
-    },
-    {
-        type: "allNotes",
-        iconProps: {
-            iconName: "QuickNote",
-        },
-        title: "All Notes",
-        ariaLabel: "All Notes",
-        active: false,
-    },
-    {
-        type: "searchNote",
-        iconProps: {
-            iconName: "Search",
-        },
-        title: "Search Note",
-        ariaLabel: "Search Note",
-        active: false,
-    },
-]
-
 export default class Sidebar extends Component {
 
     constructor(props) {
@@ -92,6 +62,43 @@ export default class Sidebar extends Component {
                 active: false,
             },
         }
+        this.handleContextAction = this.handleContextAction.bind(this);
+    }
+
+    actionContexts = [
+        {
+            type: "newNote",
+            iconProps: {
+                iconName: "Add",
+            },
+            title: "New Note",
+            ariaLabel: "New Note",
+            active: false,
+        },
+        {
+            type: "allNotes",
+            iconProps: {
+                iconName: "QuickNote",
+            },
+            title: "All Notes",
+            ariaLabel: "All Notes",
+            active: false,
+        },
+        {
+            type: "searchNote",
+            iconProps: {
+                iconName: "Search",
+            },
+            title: "Search Note",
+            ariaLabel: "Search Note",
+            active: false,
+        },
+    ]
+
+    handleContextAction(context) {
+        return _event => {
+            console.log(context);
+        }
     }
 
     render() {
@@ -99,12 +106,14 @@ export default class Sidebar extends Component {
             <Stack styles={stackStyles} tokens={{}} horizontal horizontalAlign="start">
                 <Stack.Item styles={nonShrinkingStackItemStyles}>
                     <Stack verticalAlign="start" styles={stackStyles}>
-                        {actionContexts.map((context, index) => (
+                        {this.actionContexts.map((context, index) => (
                             <Stack.Item key={index} styles={actionItemStyles}>
                                 <IconButton
-                                    {...context} 
+                                    {...context}
+                                    key={context.type}
                                     styles={iconButtonStyles}
-                                    checked={this.state.actionContext.type == context.type}
+                                    checked={this.state.actionContext.type === context.type}
+                                    onClick={this.handleContextAction(context)}
                                 />
                             </Stack.Item>
                         ))}
