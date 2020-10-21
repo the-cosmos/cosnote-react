@@ -44,7 +44,7 @@ const navBrandNameStyles = {
     root: {
         ...navItemStyles.root,
         paddingLeft: 25,
-        height: "100%"
+        height: "100%",
     }
 }
 
@@ -57,6 +57,7 @@ const navUserContextStyles = {
 const userContextStyles = {
     root: {
         ...navItemStyles.root,
+        height: "100%",
     }
 }
 
