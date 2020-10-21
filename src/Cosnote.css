@@ -38,14 +38,17 @@
     left: 0px;
 }
 
-/* .cosnoteLoginProgress {
+.cosnoteLoginProgress {
     position: relative;
     bottom: 8px;
-} */
+}
 
-.cosnoteMainProgress, .cosnoteLoginProgress {
-    margin-top: -8px;
-    margin-bottom: -8px;
+.cosnoteMainProgress {
+    position: absolute;
+    height: 2px;
+    left: 0px;
+    right: 0px;
+    top: -8px;
 }
 
 .loginErrorMessage {

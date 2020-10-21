@@ -89,7 +89,7 @@ class Header extends Component {
     render() {
         return (
             <div className="cosnoteHeader" style={{background: CosnoteTheme.palette.white, boxShadow: DefaultEffects.elevation16}}>
-                <ProgressIndicator className="cosnoteMainProgress" />
+                <ProgressIndicator className="cosnoteMainProgress" progressHidden={!this.props.cosnote.state.isLoading} />
                 <header>
                     <Brand cosnote={this.props.cosnote} />
                     <NavigationBar />
