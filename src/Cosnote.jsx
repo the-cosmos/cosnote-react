@@ -51,6 +51,10 @@ class Cosnote extends Component {
         return fetch(this.API_BASE_URL + route, options);
     };
 
+    authorizeWithSession() {
+
+    }
+
     componentDidMount() {
     };
 

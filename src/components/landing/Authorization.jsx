@@ -121,7 +121,7 @@ export default class Authorization extends Component {
                 <div className="loginCardWrapper">
                     <div className="loginMetaBar">
                         {this.state.errorMessage ? <MessageBar className="loginErrorMessage" messageBarType={MessageBarType.error}>{this.state.errorMessage}</MessageBar> : <div className="loginErrorMessage"></div>}
-                        <ProgressIndicator className="cosnoteProgress" progressHidden={!this.state.isLoading} />
+                        <ProgressIndicator className="cosnoteLoginProgress" progressHidden={!this.state.isLoading} />
                     </div>
                     <div className="loginCard" style={{boxShadow: DefaultEffects.elevation16, backgroundColor: CosnoteTheme.palette.white}}>
                         <Stack verticalAlign styles={stackStyles} tokens={{childrenGap: 20}}>
