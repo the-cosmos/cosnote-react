@@ -68,7 +68,7 @@ class Brand extends Component {
                 <Stack styles={stackStyles} tokens={{}} horizontal horizontalAlign="space-between">
                     <Stack horizontal horizontalAlign="start">
                         <Stack.Item styles={navBrandIconStyles}>
-                            <IconButton iconProps={{iconName: "waffle"}} styles={brandIconStyles} />
+                            <IconButton iconProps={{iconName: "waffle"}} styles={brandIconStyles} href="/" />
                         </Stack.Item>
                         <Separator styles={{root: {marginBottom: -7, marginTop: -7, padding: 0}}} vertical />
                         <Stack.Item styles={navBrandNameStyles}>
