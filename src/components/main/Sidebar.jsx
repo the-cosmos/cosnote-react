@@ -52,26 +52,67 @@ const sidebardPaneStyles = {
     }
 }
 
+const actionContexts = [
+    {
+        type: "newNote",
+        iconProps: {
+            iconName: "Add",
+        },
+        title: "New Note",
+        ariaLabel: "New Note",
+        active: false,
+    },
+    {
+        type: "allNotes",
+        iconProps: {
+            iconName: "QuickNote",
+        },
+        title: "All Notes",
+        ariaLabel: "All Notes",
+        active: false,
+    },
+    {
+        type: "searchNote",
+        iconProps: {
+            iconName: "Search",
+        },
+        title: "Search Note",
+        ariaLabel: "Search Note",
+        active: false,
+    },
+]
+
 export default class Sidebar extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            actionContext: {
+                type: "inactive",
+                active: false,
+            },
+        }
+    }
+
     render() {
         return (
             <Stack styles={stackStyles} tokens={{}} horizontal horizontalAlign="start">
                 <Stack.Item styles={nonShrinkingStackItemStyles}>
                     <Stack verticalAlign="start" styles={stackStyles}>
-                        <Stack.Item styles={actionItemStyles}>
-                            <IconButton styles={iconButtonStyles} iconProps={{iconName: "Add"}} title="New Note" ariaLabel="New Note" />
-                        </Stack.Item>
-                        <Stack.Item styles={actionItemStyles}>
-                            <IconButton styles={iconButtonStyles} iconProps={{iconName: "QuickNote"}} title="All Notes" ariaLabel="All Notes" />
-                        </Stack.Item>
-                        <Stack.Item styles={actionItemStyles}>
-                            <IconButton styles={iconButtonStyles} iconProps={{iconName: "Search"}} title="Search Note" ariaLabel="Search Note" />
-                        </Stack.Item>
+                        {actionContexts.map((context, index) => (
+                            <Stack.Item key={index} styles={actionItemStyles}>
+                                <IconButton
+                                    {...context} 
+                                    styles={iconButtonStyles}
+                                    checked={this.state.actionContext.type == context.type}
+                                />
+                            </Stack.Item>
+                        ))}
                     </Stack>
                 </Stack.Item>
                 <Separator vertical styles={{root: {padding: 0}}} />
                 <Stack.Item grow styles={sidebardPaneStyles}>
-                    <ActionBar toggled={true} />
+                    {this.state.actionContext.active ? <ActionBar /> : null}
                 </Stack.Item>
             </Stack>
         )

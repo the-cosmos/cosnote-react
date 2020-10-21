@@ -68,6 +68,10 @@
     padding-top: 20px;
 }
 
+.cosnoteEditor, .sideActionBar {
+    background-color: #002b36;
+}
+
 /* .developerEditor {
     padding-top: 20px;
 } */

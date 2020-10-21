@@ -48,7 +48,7 @@ export default class DeveloperEditor extends Component {
 
     render() {
         return (
-            <div className="cosnoteEditor" style={{background: "#002b36"}}>
+            <div className="cosnoteEditor">
                 <Editor
                     className="developerEditor"
                     height="100%"
