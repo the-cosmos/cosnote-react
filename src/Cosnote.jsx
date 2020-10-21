@@ -19,7 +19,7 @@ class Cosnote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            partialUser: null,
+            user: null,
             isLoading: false,
             apiErrorMessage: String(),
         };
@@ -60,7 +60,7 @@ class Cosnote extends Component {
                 <Fabric className="workspace">
                     <div className="workspace">
                         <Header cosnote={this} />
-                        {/* {this.state.partialUser ? <Main cosnote={this} /> : <Login cosnote={this} />} */}
+                        {/* {this.state.user ? <Main cosnote={this} /> : <Login cosnote={this} />} */}
                         <Main cosnote={this} />
                     </div>
                 </Fabric>

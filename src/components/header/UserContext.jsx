@@ -17,14 +17,14 @@ export default class UserContext extends Component {
 
     revoke() {
         this.props.cosnote.request("/revoke/", {}).then(response => {
-            this.cosnote.setState(state => {return {...state, partialUser: null}})
+            this.cosnote.setState(state => {return {...state, user: null}})
         })
     }
 
     render() {
         return (
             <div>
-                {this.cosnote.state.partialUser ? <DefaultButton iconProps={{iconName: "SignOut"}} text={this.cosnote.state.partialUser.username} onClick={this.revoke} /> : <div></div>}
+                {this.cosnote.state.user ? <DefaultButton iconProps={{iconName: "SignOut"}} text={this.cosnote.state.user.username} onClick={this.revoke} /> : <div></div>}
             </div>
         )
     }

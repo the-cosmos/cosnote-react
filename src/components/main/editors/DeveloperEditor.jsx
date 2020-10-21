@@ -50,6 +50,7 @@ export default class DeveloperEditor extends Component {
         return (
             <div className="cosnoteEditor" style={{background: "#002b36"}}>
                 <Editor
+                    className="developerEditor"
                     height="100%"
                     width="100%"
                     value={this.state.content}
