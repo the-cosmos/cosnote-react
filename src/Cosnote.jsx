@@ -79,7 +79,10 @@ class Cosnote extends Component {
                 <Fabric className="workspace">
                     <div className="workspace">
                         <Header cosnote={this} />
-                        {this.state.user ? <Main cosnote={this} /> : <Login cosnote={this} />}
+                        {this.state.user
+                            ? <Main cosnote={this} />
+                            : <Login cosnote={this} />
+                        }
                         <Main cosnote={this} />
                     </div>
                 </Fabric>
