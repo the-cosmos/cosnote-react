@@ -54,17 +54,6 @@ const sidebardPaneStyles = {
 
 export default class Sidebar extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            actionContext: {
-                type: "inactive",
-                active: false,
-            },
-        }
-        this.handleContextAction = this.handleContextAction.bind(this);
-    }
-
     actionContexts = [
         {
             type: "newNote",
@@ -73,7 +62,6 @@ export default class Sidebar extends Component {
             },
             title: "New Note",
             ariaLabel: "New Note",
-            active: false,
         },
         {
             type: "allNotes",
@@ -82,7 +70,6 @@ export default class Sidebar extends Component {
             },
             title: "All Notes",
             ariaLabel: "All Notes",
-            active: false,
         },
         {
             type: "searchNote",
@@ -91,13 +78,25 @@ export default class Sidebar extends Component {
             },
             title: "Search Note",
             ariaLabel: "Search Note",
-            active: false,
         },
     ]
 
+    defaultContext = {
+        type: "inactive",
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            actionContext: this.defaultContext,
+        }
+        this.handleContextAction = this.handleContextAction.bind(this);
+    }
+
     handleContextAction(context) {
         return _event => {
-            console.log(context);
+            context = this.state.actionContext.type === context.type ? this.defaultContext : context
+            this.setState(state => {return {...state, actionContext: context}})
         }
     }
 
@@ -121,7 +120,7 @@ export default class Sidebar extends Component {
                 </Stack.Item>
                 <Separator vertical styles={{root: {padding: 0}}} />
                 <Stack.Item grow styles={sidebardPaneStyles}>
-                    {this.state.actionContext.active ? <ActionBar context={this.state.actionContext} /> : null}
+                    {this.state.actionContext.type !== "inactive" ? <ActionBar context={this.state.actionContext} /> : null}
                 </Stack.Item>
             </Stack>
         )
