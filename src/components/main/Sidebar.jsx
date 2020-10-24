@@ -56,26 +56,20 @@ export default class Sidebar extends Component {
 
     actionContexts = [
         {
-            type: "newNote",
-            iconProps: {
-                iconName: "Add",
-            },
-            title: "New Note",
-            ariaLabel: "New Note",
+            type: "editNote",
+            iconName: "EditNote",
+            title: "Edit Note",
+            ariaLabel: "Edit Note",
         },
         {
             type: "allNotes",
-            iconProps: {
-                iconName: "QuickNote",
-            },
+            iconName: "QuickNote",
             title: "All Notes",
             ariaLabel: "All Notes",
         },
         {
             type: "searchNote",
-            iconProps: {
-                iconName: "Search",
-            },
+            iconName: "Search",
             title: "Search Note",
             ariaLabel: "Search Note",
         },
@@ -105,11 +99,16 @@ export default class Sidebar extends Component {
             <Stack styles={stackStyles} tokens={{}} horizontal horizontalAlign="start">
                 <Stack.Item styles={nonShrinkingStackItemStyles}>
                     <Stack verticalAlign="start" styles={stackStyles}>
+                        <Stack.Item styles={actionItemStyles}>
+                            <IconButton iconProps={{iconName: "Add"}} styles={iconButtonStyles} />
+                        </Stack.Item>
+                        <Separator horizontal styles={{root: {height: 0, padding: 0}}} />
                         {this.actionContexts.map((context, index) => (
                             <Stack.Item key={index} styles={actionItemStyles}>
                                 <IconButton
                                     {...context}
                                     key={context.type}
+                                    iconProps={{iconName: context.iconName}}
                                     styles={iconButtonStyles}
                                     checked={this.state.actionContext.type === context.type}
                                     onClick={this.handleContextAction(context)}
