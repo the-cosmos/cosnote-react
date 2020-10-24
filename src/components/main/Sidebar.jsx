@@ -101,7 +101,7 @@ export default class Sidebar extends Component {
                 <Stack.Item styles={nonShrinkingStackItemStyles}>
                     <Stack verticalAlign="start" styles={stackStyles}>
                         <Stack.Item styles={actionItemStyles}>
-                            <IconButton iconProps={{iconName: "Add"}} styles={iconButtonStyles} />
+                            <IconButton iconProps={{iconName: "Add"}} styles={iconButtonStyles} title="New Note" ariaLabel="New Note" />
                         </Stack.Item>
                         <Separator horizontal styles={{root: {height: 0, padding: 0}}} />
                         {this.actionContexts.map((context, index) => (
