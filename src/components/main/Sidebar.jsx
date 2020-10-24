@@ -33,6 +33,7 @@ const iconButtonStyles = {
     root: {
         width: "100%",
         height: "100%",
+        borderRadius: 0,
     }
 }
 
@@ -105,6 +106,7 @@ export default class Sidebar extends Component {
                         <Separator horizontal styles={{root: {height: 0, padding: 0}}} />
                         {this.actionContexts.map((context, index) => (
                             <Stack.Item key={index} styles={actionItemStyles}>
+                                {this.state.actionContext.type === context.type ? <div className="verticalPivot" style={{background: CosnoteTheme.palette.themePrimary}} /> : null}
                                 <IconButton
                                     {...context}
                                     key={context.type}

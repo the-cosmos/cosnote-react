@@ -75,3 +75,11 @@
 /* .developerEditor {
     padding-top: 20px;
 } */
+
+.verticalPivot {
+    width: 1px;
+    height: 50px;
+    position: absolute;
+    left: 0px;
+    z-index: 1;
+}
