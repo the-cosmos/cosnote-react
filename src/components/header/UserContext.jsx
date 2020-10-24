@@ -1,4 +1,4 @@
-import { DefaultButton } from '@fluentui/react'
+import { ActionButton } from '@fluentui/react'
 import React, { Component } from 'react'
 
 // const userPersonaStyles = {
@@ -24,7 +24,7 @@ export default class UserContext extends Component {
     render() {
         return (
             <div>
-                {this.cosnote.state.user ? <DefaultButton iconProps={{iconName: "SignOut"}} text={this.cosnote.state.user.username} onClick={this.revoke} /> : <div></div>}
+                {this.cosnote.state.user ? <ActionButton iconProps={{iconName: "SignOut"}} text={this.cosnote.state.user.username} onClick={this.revoke} /> : <div></div>}
             </div>
         )
     }
