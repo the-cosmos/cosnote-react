@@ -2,8 +2,11 @@ import { DefaultButton, DefaultEffects, Dropdown, IconButton, PrimaryButton, Sta
 import languages from './editors/languages.json';
 import React, { Component } from 'react'
 import { CosnoteTheme } from "../../cosnoteTheme";
+import { stringToTitle } from '../../utils';
 
-const supportedLanguages = languages.map(value => {return {key: value.toLocaleLowerCase(), text: value}})
+const supportedLanguages = languages.map(value => {
+    return {key: value.toLocaleLowerCase(), text: stringToTitle(value)}
+})
 
 const sideActionBarStyles = {
     boxShadow: DefaultEffects.elevation16,
