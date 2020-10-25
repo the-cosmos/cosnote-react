@@ -2,10 +2,9 @@ import { DefaultButton, DefaultEffects, Dropdown, IconButton, PrimaryButton, Sta
 import languages from './editors/languages.json';
 import React, { Component } from 'react'
 import { CosnoteTheme } from "../../cosnoteTheme";
-import { stringToTitle } from '../../utils';
 
-const supportedLanguages = languages.map(value => {
-    return {key: value.toLocaleLowerCase(), text: stringToTitle(value)}
+const supportedLanguages = Object.keys(languages).map(lang => {
+    return {key: lang, text: languages[lang]};
 })
 
 const sideActionBarStyles = {
@@ -38,7 +37,7 @@ class EditNote extends Component {
                         <TextField className="noteTitleField" placeholder="Title of this note or script." iconProps={{iconName: "ChevronRightMed"}} style={{backgroundColor: CosnoteTheme.palette.neutralLighter}} underlined />
                     </Stack.Item>
                     <Stack.Item disableShrink styles={primaryItemStyles}>
-                        <Dropdown label="Language" className="noteLanguageDropdown" options={supportedLanguages} styles={{dropdown: {}}} />
+                        <Dropdown label="Language" className="noteLanguageDropdown" options={supportedLanguages} styles={{callout: {}}} />
                     </Stack.Item>
                     </Stack>
                 </Stack.Item>
