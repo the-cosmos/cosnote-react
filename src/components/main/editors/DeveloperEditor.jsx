@@ -34,6 +34,7 @@ export default class DeveloperEditor extends Component {
         this.editor = React.createRef();
         this.editorDidMount = this.editorDidMount.bind(this);
         this.onEditorStateUpdate = this.onEditorStateUpdate.bind(this);
+        this._fixScroll = this._fixScroll.bind(this);
     }
 
     editorDidMount(_, editor) {
@@ -46,9 +47,14 @@ export default class DeveloperEditor extends Component {
         })
     }
 
+    _fixScroll(event) {
+        console.log(event.target);
+        console.log(event.type);
+    }
+
     render() {
         return (
-            <div className="cosnoteEditor">
+            <div className="cosnoteEditor" onScroll={this._fixScroll}>
                 <Editor
                     className="developerEditor"
                     height="100%"
