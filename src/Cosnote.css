@@ -83,3 +83,11 @@
     left: 0px;
     z-index: 1;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
+  
+::-webkit-scrollbar-track {
+    display: none;
+  }
