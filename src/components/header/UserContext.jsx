@@ -7,6 +7,14 @@ import React, { Component } from 'react'
 //     }
 // }
 
+const iconStyles = {
+    root: {
+        height: 50,
+        width: 50,
+        padding: 4,
+    }
+}
+
 export default class UserContext extends Component {
 
     constructor(props) {
@@ -23,9 +31,16 @@ export default class UserContext extends Component {
 
     render() {
         return (
-            <div>
-                {this.cosnote.state.user ? <ActionButton iconProps={{iconName: "SignOut"}} text={this.cosnote.state.user.username} onClick={this.revoke} /> : <div></div>}
-            </div>
+            <>
+                {/* <IconButton iconProps={{iconName: "Settings"}} styles={iconStyles} /> */}
+                {this.cosnote.state.user ?
+                    <ActionButton
+                        iconProps={{iconName: "SignOut"}}
+                        text={this.cosnote.state.user.username}
+                        onClick={this.revoke}
+                    />
+                : <div></div>}
+            </>
         )
     }
 }

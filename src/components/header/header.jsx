@@ -18,7 +18,7 @@ const navItemStyles = {
         alignItems: 'center',
         display: 'flex',
         background: CosnoteTheme.palette.white,
-        height: FontSizes.size42,
+        // height: FontSizes.size42,
         justifyContent: 'center',
         width: "auto"
     }
@@ -50,14 +50,14 @@ const navBrandNameStyles = {
 
 const navUserContextStyles = {
     root: {
-        marginRight: 25
+        // marginRight: 25
     }
 }
 
 const userContextStyles = {
     root: {
         ...navItemStyles.root,
-        height: "100%",
+        // height: 50,
     }
 }
 
