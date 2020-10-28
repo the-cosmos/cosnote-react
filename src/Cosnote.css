@@ -64,17 +64,13 @@
     z-index: 3;
 }
 
-.cosnoteEditor {
+/* .cosnoteEditor {
     padding-top: 28px;
-}
+} */
 
 .cosnoteEditor, .sideActionBar {
     background-color: #002b36;
 }
-
-/* .developerEditor {
-    padding-top: 20px;
-} */
 
 .verticalPivot {
     width: 1px;

@@ -34,7 +34,7 @@ class EditNote extends Component {
                 <Stack.Item styles={{}}>
                     <Stack horizontalAlign="center" styles={{}} tokens={{childrenGap: 20}}>
                     <Stack.Item disableShrink styles={primaryItemStyles}>
-                        <TextField className="noteTitleField" placeholder="Title of this note or script." iconProps={{iconName: "ChevronRightMed"}} style={{backgroundColor: CosnoteTheme.palette.neutralLighter}} underlined />
+                        <TextField className="noteTitleField" placeholder="Title of this note or script." iconProps={{iconName: "Header"}} style={{backgroundColor: CosnoteTheme.palette.neutralLighter}} underlined />
                     </Stack.Item>
                     <Stack.Item disableShrink styles={primaryItemStyles}>
                         <Dropdown label="Language" className="noteLanguageDropdown" options={supportedLanguages} styles={{callout: {display: "flex", flexDirection: "column", maxHeight: "calc(100vh - 300px)"}}} />
