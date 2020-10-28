@@ -1,4 +1,4 @@
-import { DefaultButton, DefaultEffects, Dropdown, IconButton, PrimaryButton, Stack, TextField} from '@fluentui/react'
+import { DefaultButton, DefaultEffects, Dropdown, IconButton, PrimaryButton, SearchBox, Stack, TextField} from '@fluentui/react'
 import languages from './editors/languages.json';
 import React, { Component } from 'react'
 import { CosnoteTheme } from "../../cosnoteTheme";
@@ -10,6 +10,14 @@ const supportedLanguages = Object.keys(languages).map(lang => {
 const sideActionBarStyles = {
     boxShadow: DefaultEffects.elevation16,
     background: CosnoteTheme.palette.neutralLighter,
+}
+
+const stackStyles = {
+    root: {
+        height: "100%",
+        width: "100%",
+        padding: 20,
+    }
 }
 
 const stackItemStyles = {
@@ -30,15 +38,15 @@ const primaryItemStyles = {
 class EditNote extends Component {
     render() {
         return (
-            <Stack verticalAlign="space-between" styles={{root: {height: "100%", width: "100%", padding: 20}}}>
+            <Stack verticalAlign="space-between" styles={stackStyles}>
                 <Stack.Item styles={{}}>
                     <Stack horizontalAlign="center" styles={{}} tokens={{childrenGap: 20}}>
-                    <Stack.Item disableShrink styles={primaryItemStyles}>
-                        <TextField className="noteTitleField" placeholder="Title of this note or script." iconProps={{iconName: "Header"}} style={{backgroundColor: CosnoteTheme.palette.neutralLighter}} underlined />
-                    </Stack.Item>
-                    <Stack.Item disableShrink styles={primaryItemStyles}>
-                        <Dropdown label="Language" className="noteLanguageDropdown" options={supportedLanguages} styles={{callout: {display: "flex", flexDirection: "column", maxHeight: "calc(100vh - 300px)"}}} />
-                    </Stack.Item>
+                        <Stack.Item disableShrink styles={primaryItemStyles}>
+                            <TextField className="noteTitleField" placeholder="Title of this note or script." iconProps={{iconName: "Header"}} style={{backgroundColor: CosnoteTheme.palette.neutralLighter}} underlined />
+                        </Stack.Item>
+                        <Stack.Item disableShrink styles={primaryItemStyles}>
+                            <Dropdown label="Language" className="noteLanguageDropdown" options={supportedLanguages} styles={{callout: {display: "flex", flexDirection: "column", maxHeight: "calc(100vh - 300px)"}}} />
+                        </Stack.Item>
                     </Stack>
                 </Stack.Item>
                 <Stack.Item>
@@ -59,11 +67,27 @@ class EditNote extends Component {
     }
 }
 
+
+class AllNotes extends Component {
+    render() {
+        return (
+            <Stack verticalAlign="start" styles={stackStyles}>
+                <Stack.Item>
+                    <Stack horizontalAlign="center" styles={{}} tokens={{childrenGap: 20}}>
+                        <SearchBox className="noteSearchBar" placeholder="Search through your notes..." onSearch={() => {}} />
+                    </Stack>
+                </Stack.Item>
+            </Stack>
+        )
+    }
+}
+
 export default class ActionBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
             "editNote": <EditNote />,
+            "allNotes": <AllNotes />,
         }
     }
 

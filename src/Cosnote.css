@@ -26,7 +26,7 @@
     margin-top: 20px;
 }
 
-.loginField, .oauthButton, .noteTitleField, .noteLanguageDropdown {
+.loginField, .oauthButton, .noteTitleField, .noteLanguageDropdown, .noteSearchBar {
     width: 100%;
 }
 
