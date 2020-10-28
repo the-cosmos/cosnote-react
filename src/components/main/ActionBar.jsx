@@ -37,7 +37,7 @@ class EditNote extends Component {
                         <TextField className="noteTitleField" placeholder="Title of this note or script." iconProps={{iconName: "ChevronRightMed"}} style={{backgroundColor: CosnoteTheme.palette.neutralLighter}} underlined />
                     </Stack.Item>
                     <Stack.Item disableShrink styles={primaryItemStyles}>
-                        <Dropdown label="Language" className="noteLanguageDropdown" options={supportedLanguages} styles={{callout: {}}} />
+                        <Dropdown label="Language" className="noteLanguageDropdown" options={supportedLanguages} styles={{callout: {display: "flex", flexDirection: "column", maxHeight: "calc(100vh - 300px)"}}} />
                     </Stack.Item>
                     </Stack>
                 </Stack.Item>
