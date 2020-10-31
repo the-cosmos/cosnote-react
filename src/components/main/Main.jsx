@@ -37,11 +37,6 @@ const editorStyles = {
 
 export default class Main extends Component {
 
-    constructor(props) {
-        super(props);
-        this.cosnote = this.props.cosnote;
-    }
-
     render() {
         return (
             <div className="cosnoteMain">
@@ -50,7 +45,7 @@ export default class Main extends Component {
                         <Sidebar />
                     </Stack.Item>
                     <Stack.Item grow styles={editorStyles}>
-                        <Editor />
+                        <Editor cosnote={this.props.cosnote} />
                     </Stack.Item>
                 </Stack>
             </div>

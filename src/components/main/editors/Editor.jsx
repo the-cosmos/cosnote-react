@@ -4,19 +4,12 @@ import DeveloperEditor from './DeveloperEditor';
 
 export default class Editor extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            developer: true,
-        }
-    }
-
     render() {
         return (
             <div className="cosnoteEditorWrapper">
-                {this.state.developer ?
-                    <DeveloperEditor />
-                    : <TextEditor />
+                {this.props.cosnote.state.user.developer ?
+                    <DeveloperEditor cosnote={this.props.cosnote} />
+                    : <TextEditor cosnote={this.props.cosnote} />
                 }
             </div>
         )
