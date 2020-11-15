@@ -64,9 +64,9 @@
     z-index: 3;
 }
 
-/* .cosnoteEditor {
-    padding-top: 28px;
-} */
+.cosnoteEditor {
+    padding-top: 20px;
+}
 
 .cosnoteEditor, .sideActionBar {
     background-color: #002b36;
