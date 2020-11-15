@@ -1,6 +1,6 @@
 import { IconButton, Separator, Stack } from '@fluentui/react'
 import React, { Component } from 'react'
-import ActionBar from './ActionBar'
+import ActionBar from '../main/ActionBar'
 import { CosnoteTheme } from "../../cosnoteTheme";
 
 const stackStyles = {
@@ -77,7 +77,12 @@ export default class Sidebar extends Component {
     ]
 
     defaultContext = {
-        type: "inactive",
+        // type: "inactive",
+
+        type: "allNotes",
+        iconName: "QuickNote",
+        title: "All Notes",
+        ariaLabel: "All Notes",
     }
 
     constructor(props) {
