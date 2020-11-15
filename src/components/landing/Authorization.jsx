@@ -93,7 +93,7 @@ export default class Authorization extends Component {
                                     return this.showErrorMessage(getErrorMessage(json.errors));
                                 };
                                 this.startLoading(false);
-                                this.cosnote.setState(state => {return {...state, user: json}});
+                                this.cosnote.setState(state => {return {...state, user: json, isAuthorized: true}});
                                 return;
                             })
                         })
@@ -102,7 +102,7 @@ export default class Authorization extends Component {
                     }
                 } else {
                     this.startLoading(false);
-                    this.cosnote.setState(state => {return {...state, user: json}});
+                    this.cosnote.setState(state => {return {...state, user: json, isAuthorized: true}});
                     return;
                 }
             })
