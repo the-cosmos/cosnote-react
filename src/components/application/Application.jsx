@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Stack } from '@fluentui/react';
-import Editor from '../main/editors/Editor';
+import Editor from './editors/Editor';
 import Sidebar from './Sidebar';
 
 const stackStyles = {

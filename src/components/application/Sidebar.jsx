@@ -1,6 +1,6 @@
 import { IconButton, Separator, Stack } from '@fluentui/react'
 import React, { Component } from 'react'
-import ActionBar from '../main/ActionBar'
+import ActionBar from './ActionBar';
 import { CosnoteTheme } from "../../cosnoteTheme";
 
 const stackStyles = {
