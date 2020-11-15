@@ -25,7 +25,7 @@ export default class UserContext extends Component {
 
     revoke() {
         this.props.cosnote.request("/revoke/", {}).then(response => {
-            this.cosnote.setState(state => {return {...state, user: null}})
+            this.cosnote.setState(state => {return {...state, ...this.props.cosnote.baseState, isAuthorized: false}})
         })
     }
 
@@ -33,7 +33,7 @@ export default class UserContext extends Component {
         return (
             <>
                 {/* <IconButton iconProps={{iconName: "Settings"}} styles={iconStyles} /> */}
-                {this.cosnote.state.user ?
+                {this.cosnote.state.isAuthorized ?
                     <ActionButton
                         iconProps={{iconName: "SignOut"}}
                         text={this.cosnote.state.user.username}

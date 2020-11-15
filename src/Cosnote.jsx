@@ -15,14 +15,18 @@ class Cosnote extends Component {
 
     API_BASE_URL = "http://127.0.0.1:5000/api";
 
+    baseState = {
+        user: {
+            preferences: {},
+        },
+        notes: [],
+    }
 
     constructor(props) {
         super(props);
         this.state = {
-            user: {
-                preferences: {},
-            },
-            notes: [],
+            ...this.baseState,
+            isAuthorized: false,
             isLoading: false,
             errorMessage: String(),
         };
@@ -67,7 +71,7 @@ class Cosnote extends Component {
                 response.json().then(json => {
                     let notes = json.notes;
                     delete json.notes;
-                    this.setState(state => {return {...state, user: json, notes: notes}});
+                    this.setState(state => {return {...state, user: json, notes: notes, isAuthorized: true}});
                 })
             }
             this.startLoading(false);
@@ -84,7 +88,7 @@ class Cosnote extends Component {
                 <Fabric className="workspace">
                     <div className="workspace">
                         <Header cosnote={this} />
-                        {this.state.user
+                        {this.state.isAuthorized
                             ? <Main cosnote={this} />
                             : <Login cosnote={this} />
                         }
