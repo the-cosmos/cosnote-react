@@ -19,7 +19,10 @@ class Cosnote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: null,
+            user: {
+                preferences: {},
+            },
+            notes: [],
             isLoading: false,
             errorMessage: String(),
         };
@@ -62,7 +65,9 @@ class Cosnote extends Component {
         this.request("/user/", {method: "GET"}).then(response => {
             if (response.ok) {
                 response.json().then(json => {
-                    this.setState(state => {return {...state, user: json}});
+                    let notes = json.notes;
+                    delete json.notes;
+                    this.setState(state => {return {...state, user: json, notes: notes}});
                 })
             }
             this.startLoading(false);
