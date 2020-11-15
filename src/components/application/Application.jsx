@@ -42,19 +42,24 @@ export default class Application extends Component {
         this.fetchNotes = this.fetchNotes.bind(this);
     }
 
+    sortNotes() {
+        let notes = this.props.cosnote.state.notes;
+        notes.sort((a, b) => a.metadata.last_updated > b.metadata.last_updated ? -1 : (b.metadata.last_updated > a.metadata.last_updated ? 1 : 0));
+        this.props.cosnote.setState(state => {return {...state, notes: notes}});
+    }
+
     fetchNotes() {
-        console.log("Starting to fetch notes")
         if (this.props.cosnote.state.notes === null) {
-            console.log("fetching notes.")
             this.props.cosnote.startLoading();
             this.props.cosnote.request("/notes/", {method: "GET"}).then(response => {
-                console.log(response)
                 response.json().then(json => {
-                    console.log(json)
                     this.props.cosnote.setState(state => {return {...state, notes: json}});
+                    this.sortNotes();
                 })
             })
             this.props.cosnote.startLoading(false);
+        } else {
+            this.sortNotes();
         }
     }
 
