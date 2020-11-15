@@ -19,7 +19,7 @@ class Cosnote extends Component {
         user: {
             preferences: {},
         },
-        notes: [],
+        notes: null,
     }
 
     constructor(props) {
