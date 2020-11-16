@@ -2,6 +2,7 @@ import { DefaultButton, DefaultEffects, Dropdown, IconButton, PrimaryButton, Sea
 import languages from './editors/languages.json';
 import React, { Component } from 'react'
 import { CosnoteTheme } from "../../cosnoteTheme";
+import NoteListView from './NoteListView';
 
 const supportedLanguages = Object.keys(languages).map(lang => {
     return {key: lang, text: languages[lang]};
@@ -74,7 +75,16 @@ class AllNotes extends Component {
             <Stack verticalAlign="start" styles={stackStyles}>
                 <Stack.Item>
                     <Stack horizontalAlign="center" styles={{}} tokens={{childrenGap: 20}}>
-                        <SearchBox className="noteSearchBar" placeholder="Search through your notes..." onSearch={() => {}} />
+                        <SearchBox className="noteSearchBar" placeholder="Search through your notes ..." onSearch={() => {}} />
+                    </Stack>
+                </Stack.Item>
+                <Stack.Item>
+                    <Stack verticalAlign="start" style={stackStyles}>
+                        {(this.props.cosnote.state.notes || []).map((note, index) => (
+                            <Stack.Item>
+                                <NoteListView key={index} note={note} />
+                            </Stack.Item>
+                        ))}
                     </Stack>
                 </Stack.Item>
             </Stack>
@@ -86,8 +96,8 @@ export default class ActionBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            "editNote": <EditNote />,
-            "allNotes": <AllNotes />,
+            "editNote": <EditNote cosnote={this.props.cosnote} app={this.props.app} />,
+            "allNotes": <AllNotes cosnote={this.props.cosnote} app={this.props.app} />,
         }
     }
 
