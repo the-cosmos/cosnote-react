@@ -126,7 +126,7 @@ export default class Sidebar extends Component {
                 </Stack.Item>
                 <Separator vertical styles={{root: {padding: 0}}} />
                 <Stack.Item grow styles={sidebardPaneStyles}>
-                    {this.state.actionContext.type !== "inactive" ? <ActionBar context={this.state.actionContext} /> : null}
+                    {this.state.actionContext.type !== "inactive" ? <ActionBar cosnote={this.props.cosnote} app={this.props.app} context={this.state.actionContext} /> : null}
                 </Stack.Item>
             </Stack>
         )
