@@ -52,10 +52,12 @@ export default class Application extends Component {
         if (this.props.cosnote.state.notes === null) {
             this.props.cosnote.startLoading();
             this.props.cosnote.request("/notes/", {method: "GET"}).then(response => {
-                response.json().then(json => {
-                    this.props.cosnote.setState(state => {return {...state, notes: json}});
-                    this.sortNotes();
-                })
+                if (response.ok) {
+                    response.json().then(json => {
+                        this.props.cosnote.setState(state => {return {...state, notes: json}});
+                        this.sortNotes();
+                    })
+                }
             })
             this.props.cosnote.startLoading(false);
         } else {
