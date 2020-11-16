@@ -96,10 +96,10 @@ export default class Application extends Component {
         return (
             <Stack horizontal styles={stackStyles} tokens={{}}>
                 <Stack.Item styles={sidebarStyles}>
-                    <Sidebar cosnote={this.props.cosnote} />
+                    <Sidebar cosnote={this.props.cosnote} app={this} />
                 </Stack.Item>
                 <Stack.Item grow styles={editorStyles}>
-                    <Editor cosnote={this.props.cosnote} />
+                    <Editor cosnote={this.props.cosnote} app={this} />
                 </Stack.Item>
             </Stack>
         )
