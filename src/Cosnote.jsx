@@ -20,6 +20,7 @@ class Cosnote extends Component {
             preferences: {},
         },
         notes: null,
+        activeNote: null,
     }
 
     constructor(props) {

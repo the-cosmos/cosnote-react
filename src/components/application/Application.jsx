@@ -40,12 +40,28 @@ export default class Application extends Component {
     constructor(props) {
         super(props);
         this.fetchNotes = this.fetchNotes.bind(this);
+        this.setActiveNote = this.setActiveNote.bind(this);
     }
 
     sortNotes() {
         let notes = this.props.cosnote.state.notes;
         notes.sort((a, b) => a.metadata.last_updated > b.metadata.last_updated ? -1 : (b.metadata.last_updated > a.metadata.last_updated ? 1 : 0));
         this.props.cosnote.setState(state => {return {...state, notes: notes}});
+    }
+
+    getNewNote() {
+        return {
+            content: String(),
+            title: String(),
+            metadata: {
+                language: "text",
+                shared: false,
+            }
+        }
+    }
+
+    setActiveNote(note) {
+        this.props.cosnote.setState(state => {return {...state, activeNote: note}});
     }
 
     fetchNotes() {
@@ -62,6 +78,11 @@ export default class Application extends Component {
             this.props.cosnote.startLoading(false);
         } else {
             this.sortNotes();
+        }
+        if (this.props.cosnote.state.notes) {
+            this.setActiveNote(this.props.cosnote.state.notes[0]);
+        } else {
+            this.setActiveNote(this.getNewNote());
         }
     }
 
