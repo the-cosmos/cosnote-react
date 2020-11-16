@@ -73,7 +73,7 @@ export default class Application extends Component {
         return (
             <Stack horizontal styles={stackStyles} tokens={{}}>
                 <Stack.Item styles={sidebarStyles}>
-                    <Sidebar />
+                    <Sidebar cosnote={this.props.cosnote} />
                 </Stack.Item>
                 <Stack.Item grow styles={editorStyles}>
                     <Editor cosnote={this.props.cosnote} />
