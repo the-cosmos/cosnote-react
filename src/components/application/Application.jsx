@@ -40,7 +40,6 @@ export default class Application extends Component {
     constructor(props) {
         super(props);
         this.fetchNotes = this.fetchNotes.bind(this);
-        this.setActiveNote = this.setActiveNote.bind(this);
     }
 
     sortNotes() {
@@ -60,10 +59,6 @@ export default class Application extends Component {
         }
     }
 
-    setActiveNote(note) {
-        this.props.cosnote.setState(state => {return {...state, activeNote: note}});
-    }
-
     fetchNotes() {
         if (this.props.cosnote.state.notes === null) {
             this.props.cosnote.startLoading();
@@ -78,13 +73,6 @@ export default class Application extends Component {
             this.props.cosnote.startLoading(false);
         } else {
             this.sortNotes();
-        }
-        if (this.props.cosnote.state.notes) {
-            this.setActiveNote(this.props.cosnote.state.notes[0]);
-        } else {
-            let note = this.getNewNote();
-            this.setActiveNote(note);
-            this.props.cosnote.setState(state => {return {...state, notes: [note]}});
         }
     }
 
