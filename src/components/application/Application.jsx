@@ -82,7 +82,9 @@ export default class Application extends Component {
         if (this.props.cosnote.state.notes) {
             this.setActiveNote(this.props.cosnote.state.notes[0]);
         } else {
-            this.setActiveNote(this.getNewNote());
+            let note = this.getNewNote();
+            this.setActiveNote(note);
+            this.props.cosnote.setState(state => {return {...state, notes: [note]}});
         }
     }
 
