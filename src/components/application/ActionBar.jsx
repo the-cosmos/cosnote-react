@@ -1,4 +1,4 @@
-import { DefaultButton, DefaultEffects, Dropdown, IconButton, PrimaryButton, SearchBox, Stack, TextField} from '@fluentui/react'
+import { DefaultButton, DefaultEffects, Dropdown, PrimaryButton, SearchBox, Stack, TextField} from '@fluentui/react'
 import languages from './editors/languages.json';
 import React, { Component } from 'react'
 import { CosnoteTheme } from "../../cosnoteTheme";
