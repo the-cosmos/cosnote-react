@@ -38,19 +38,6 @@ const primaryItemStyles = {
 
 class EditNote extends Component {
 
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(e) {
-        e.persist();
-        let note = this.props.app.getCurrentNote();
-        console.log(e.target.name, "|", e.target.value);
-        note[e.target.name] = e.target.value;
-        this.props.app.updateCurrentNote(note);
-    }
-
     render() {
         return (
             <Stack verticalAlign="space-between" styles={stackStyles}>
@@ -63,9 +50,12 @@ class EditNote extends Component {
                                 iconProps={{iconName: "Header"}}
                                 style={{backgroundColor: CosnoteTheme.palette.neutralLighter}}
                                 underlined
-                                name="title"
-                                defaultValue={this.props.cosnote.state.notes[0].title}
-                                onChange={this.handleChange}
+                                defaultValue={this.props.app.getCurrentNote().title}
+                                onChange={e => {
+                                    let note = this.props.app.getCurrentNote();
+                                    note["title"] = e.target.value;
+                                    this.props.app.updateCurrentNote(note);
+                                }}
                             />
                         </Stack.Item>
                         <Stack.Item disableShrink styles={primaryItemStyles}>
