@@ -53,7 +53,7 @@ class EditNote extends Component {
                                 defaultValue={this.props.app.getCurrentNote().title}
                                 onChange={e => {
                                     let note = this.props.app.getCurrentNote();
-                                    note["title"] = e.target.value;
+                                    note.title = e.target.value;
                                     this.props.app.updateCurrentNote(note);
                                 }}
                             />
@@ -64,6 +64,12 @@ class EditNote extends Component {
                                 className="noteLanguageDropdown"
                                 options={supportedLanguages}
                                 styles={{callout: {display: "flex", flexDirection: "column", maxHeight: "calc(100vh - 300px)"}}}
+                                defaultSelectedKey={this.props.app.getCurrentNote().metadata.language || "text"}
+                                onChange={(e, item) => {
+                                    let note = this.props.app.getCurrentNote();
+                                    note.metadata.language = item.key;
+                                    this.props.app.updateCurrentNote(note);
+                                }}
                             />
                         </Stack.Item>
                     </Stack>
