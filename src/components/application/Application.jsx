@@ -40,6 +40,7 @@ export default class Application extends Component {
     constructor(props) {
         super(props);
         this.fetchNotes = this.fetchNotes.bind(this);
+        this.createNote = this.createNote.bind(this);
     }
 
     sortNotes() {
@@ -48,8 +49,8 @@ export default class Application extends Component {
         this.props.cosnote.setState(state => {return {...state, notes: notes}});
     }
 
-    getNewNote() {
-        return {
+    createNote() {
+        let note = {
             content: String(),
             title: String(),
             metadata: {
@@ -57,6 +58,9 @@ export default class Application extends Component {
                 shared: false,
             }
         }
+        let notes = this.props.cosnote.state.notes || [];
+        notes.push(note);
+        this.props.cosnote.setState(state => {return {...state, notes: notes}});
     }
 
     fetchNotes() {
