@@ -37,16 +37,44 @@ const primaryItemStyles = {
 }
 
 class EditNote extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e) {
+        e.persist();
+        let note = this.props.app.getCurrentNote();
+        console.log(e.target.name, "|", e.target.value);
+        note[e.target.name] = e.target.value;
+        this.props.app.updateCurrentNote(note);
+    }
+
     render() {
         return (
             <Stack verticalAlign="space-between" styles={stackStyles}>
                 <Stack.Item styles={{}}>
                     <Stack horizontalAlign="center" styles={{}} tokens={{childrenGap: 20}}>
                         <Stack.Item disableShrink styles={primaryItemStyles}>
-                            <TextField className="noteTitleField" placeholder="Title of this note or script." iconProps={{iconName: "Header"}} style={{backgroundColor: CosnoteTheme.palette.neutralLighter}} underlined />
+                            <TextField
+                                className="noteTitleField"
+                                placeholder="Title of this note or script."
+                                iconProps={{iconName: "Header"}}
+                                style={{backgroundColor: CosnoteTheme.palette.neutralLighter}}
+                                underlined
+                                name="title"
+                                defaultValue={this.props.cosnote.state.notes[0].title}
+                                onChange={this.handleChange}
+                            />
                         </Stack.Item>
                         <Stack.Item disableShrink styles={primaryItemStyles}>
-                            <Dropdown label="Language" className="noteLanguageDropdown" options={supportedLanguages} styles={{callout: {display: "flex", flexDirection: "column", maxHeight: "calc(100vh - 300px)"}}} />
+                            <Dropdown
+                                label="Language"
+                                className="noteLanguageDropdown"
+                                options={supportedLanguages}
+                                styles={{callout: {display: "flex", flexDirection: "column", maxHeight: "calc(100vh - 300px)"}}}
+                            />
                         </Stack.Item>
                     </Stack>
                 </Stack.Item>
@@ -81,8 +109,8 @@ class AllNotes extends Component {
                 <Stack.Item>
                     <Stack verticalAlign="start" style={stackStyles}>
                         {(this.props.cosnote.state.notes || []).map((note, index) => (
-                            <Stack.Item>
-                                <NoteListView key={index} note={note} />
+                            <Stack.Item key={index}>
+                                <NoteListView note={note} />
                             </Stack.Item>
                         ))}
                     </Stack>
