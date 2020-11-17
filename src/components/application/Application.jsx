@@ -69,7 +69,7 @@ export default class Application extends Component {
     }
 
     updateCurrentNote(note) {
-        let notes = this.props.cosnote.notes;
+        let notes = this.props.cosnote.state.notes;
         notes[0] = note;
         this.props.cosnote.setState(state => {return {...state, notes: notes}});
     }
