@@ -68,6 +68,12 @@ export default class Application extends Component {
         return this.props.cosnote.notes[0] || this.createNote();
     }
 
+    updateCurrentNote(note) {
+        let notes = this.props.cosnote.notes;
+        notes[0] = note;
+        this.props.cosnote.setState(state => {return {...state, notes: notes}});
+    }
+
     fetchNotes() {
         if (this.props.cosnote.state.notes === null) {
             this.props.cosnote.startLoading();
