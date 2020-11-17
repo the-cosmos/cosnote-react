@@ -65,7 +65,7 @@ export default class Application extends Component {
     }
 
     getCurrentNote() {
-        return this.props.cosnote.notes[0] || this.createNote();
+        return this.props.cosnote.state.notes[0] || this.createNote();
     }
 
     updateCurrentNote(note) {
