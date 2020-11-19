@@ -8,7 +8,7 @@ export default class Editor extends Component {
         return (
             <div className="cosnoteEditorWrapper">
                 {this.props.cosnote.state.user.preferences.developer ?
-                    <DeveloperEditor cosnote={this.props.cosnote} />
+                    <DeveloperEditor cosnote={this.props.cosnote} app={this.props.app} />
                     : <TextEditor cosnote={this.props.cosnote} />
                 }
             </div>
