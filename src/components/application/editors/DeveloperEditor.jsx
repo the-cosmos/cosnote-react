@@ -28,7 +28,6 @@ export default class DeveloperEditor extends Component {
         super(props);
         this.state = {
             theme: "solarized-dark",
-            note: this.props.app.state.currentNote,
         }
         this.editor = React.createRef();
         this.editorDidMount = this.editorDidMount.bind(this);
@@ -51,9 +50,9 @@ export default class DeveloperEditor extends Component {
                 <Editor
                     className="developerEditor"
                     width="100%"
-                    value={this.state.note.content}
+                    value={this.props.app.state.currentNote.content}
                     loading={<CosnoteShimmer style={shimmerStyle} count={4} background="#002b36" />}
-                    language={this.state.note.metadata.language}
+                    language={this.props.app.state.currentNote.metadata.language}
                     editorDidMount={this.editorDidMount}
                     theme={this.state.theme}
                     options={editorOptions}
