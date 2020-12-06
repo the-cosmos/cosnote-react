@@ -50,9 +50,9 @@ class EditNote extends Component {
                                 iconProps={{iconName: "Header"}}
                                 style={{backgroundColor: CosnoteTheme.palette.neutralLighter}}
                                 underlined
-                                defaultValue={this.props.app.getCurrentNote().title}
+                                defaultValue={this.props.app.state.currentNote.title}
                                 onChange={e => {
-                                    let note = this.props.app.getCurrentNote();
+                                    let note = this.props.app.state.currentNote;
                                     note.title = e.target.value;
                                     this.props.app.updateCurrentNote(note);
                                 }}
@@ -64,9 +64,9 @@ class EditNote extends Component {
                                 className="noteLanguageDropdown"
                                 options={supportedLanguages}
                                 styles={{callout: {display: "flex", flexDirection: "column", maxHeight: "calc(100vh - 300px)"}}}
-                                defaultSelectedKey={this.props.app.getCurrentNote().metadata.language || "text"}
+                                defaultSelectedKey={this.props.app.state.currentNote.metadata.language || "text"}
                                 onChange={(e, item) => {
-                                    let note = this.props.app.getCurrentNote();
+                                    let note = this.props.app.state.currentNote;
                                     note.metadata.language = item.key;
                                     this.props.app.updateCurrentNote(note);
                                 }}

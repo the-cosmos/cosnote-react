@@ -28,7 +28,7 @@ export default class DeveloperEditor extends Component {
         super(props);
         this.state = {
             theme: "solarized-dark",
-            note: this.props.app.getCurrentNoteRef(),
+            note: this.props.app.state.currentNote,
         }
         this.editor = React.createRef();
         this.editorDidMount = this.editorDidMount.bind(this);
