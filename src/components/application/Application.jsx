@@ -68,7 +68,10 @@ export default class Application extends Component {
     }
 
     updateCurrentNote(properties) {
-        this.setState(state => ({...state, currentNote: {...this.state.currentNote, ...properties}}));
+        let metadata = properties.metadata;
+        let datetime = new Date();
+        metadata.last_updated = datetime.toJSON();
+        this.setState(state => ({...state, currentNote: {...this.state.currentNote, ...properties, metadata: metadata}}));
         let notes = this.props.cosnote.state.notes;
         notes[0] = this.state.currentNote;
         this.props.cosnote.setState(state => ({...state, notes: notes}));
